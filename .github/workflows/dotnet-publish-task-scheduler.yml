@@ -28,7 +28,7 @@ jobs:
       run: dotnet pack Oak.TaskScheduler --configuration=Release
 
     - name: Authenticate
-      run: otnet nuget add source --username ChrisWeaver1 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/weavc/index.json"
+      run: dotnet nuget add source --username ChrisWeaver1 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/weavc/index.json"
 
     - name: Publish
       run: dotnet nuget push Oak.TaskScheduler/bin/Release/*.nupkg --source "github"
