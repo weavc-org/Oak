@@ -5,8 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Oak.Core;
-using Oak.Core.Errors;
+using Oak.Shared;
+using Oak.Shared.Errors;
 
 namespace Oak.Email.Smtp
 {

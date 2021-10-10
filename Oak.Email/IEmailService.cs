@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Oak.Core;
+using Oak.Shared;
 
 namespace Oak.Email
 {

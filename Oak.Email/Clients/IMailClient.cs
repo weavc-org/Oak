@@ -1,7 +1,7 @@
 using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using Oak.Core;
+using Oak.Shared;
 
 namespace Oak.Email
 {

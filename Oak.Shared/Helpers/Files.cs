@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace Oak.Core.Helpers
+namespace Oak.Shared.Helpers
 {
     /// <summary>
     /// Misc file helpers

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using Oak.Core;
+using Oak.Shared;
 
 namespace Oak.UserContext
 {

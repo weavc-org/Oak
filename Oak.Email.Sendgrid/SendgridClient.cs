@@ -4,8 +4,8 @@ using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using Oak.Core;
-using Oak.Core.Errors;
+using Oak.Shared;
+using Oak.Shared.Errors;
 using SendGrid.Helpers.Mail;
 
 namespace Oak.Email.Sendgrid

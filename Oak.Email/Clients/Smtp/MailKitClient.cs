@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using System.Net.Mail;
 using MimeKit;
-using Oak.Core;
-using Oak.Core.Errors;
+using Oak.Shared;
+using Oak.Shared.Errors;
 using Microsoft.Extensions.Logging;
 
 namespace Oak.Email.Smtp

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Oak.Core;
+using Oak.Shared;
 
 namespace Oak.UserContext
 {

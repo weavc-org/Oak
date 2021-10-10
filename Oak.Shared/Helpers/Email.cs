@@ -1,6 +1,6 @@
 using System;
 
-namespace Oak.Core.Helpers
+namespace Oak.Shared.Helpers
 {
     /// <summary>
     /// Validate an email address

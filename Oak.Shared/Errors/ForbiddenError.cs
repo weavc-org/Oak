@@ -1,4 +1,4 @@
-namespace Oak.Core.Errors
+namespace Oak.Shared.Errors
 {
     public class ForbiddenError : IError
     {

@@ -1,4 +1,4 @@
-namespace Oak.Core.Errors
+namespace Oak.Shared.Errors
 {
     /// <summary>
     /// For one off errors
