@@ -1,6 +1,6 @@
 name: Dotnet Publish Oak.TaskScheduler Package
 
-on: [workflow_call]
+on: [workflow_dispatch]
 
 jobs:
   build:
