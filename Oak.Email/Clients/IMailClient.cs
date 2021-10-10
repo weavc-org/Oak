@@ -1,8 +1,9 @@
 using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Oak.Core;
 
-namespace Oak.Email.Client
+namespace Oak.Email
 {
     /// <summary>
     /// Smtp mail client service
@@ -15,7 +16,7 @@ namespace Oak.Email.Client
         /// <summary>
         /// Send email
         /// </summary>
-        Task Send(MailMessage mail, int timeout = 10000);
+        Task<Result> Send(MailMessage mail, int timeout = 10000);
 
         /// <summary>
         /// Email from address, default from appsettings is used,

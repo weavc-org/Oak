@@ -1,4 +1,4 @@
-namespace Oak.Email.Client.Smtp
+namespace Oak.Email.Smtp
 {
     public class SmtpOptions
     {

@@ -24,6 +24,15 @@ namespace Oak.Core
             this.Populate(success, message, payload, error); 
         }
 
+        public Result(
+            bool success = false,
+            string message = null, 
+            TPayload payload = default, 
+            string error = null) 
+        { 
+            this.Populate(success, message, payload, new BadRequestError(error)); 
+        }
+
         public bool Success { get; set; }
         public string Message { get; set; }
         public IError Error { get; set; }
@@ -57,16 +66,6 @@ namespace Oak.Core
             this.Error = error;
 
             return this;
-        }
-
-        public static Result<TPayload> S(TPayload payload, string message = null)
-        {
-            return new Result<TPayload>(success: true, message: message, payload: payload);
-        }
-
-        public static Result<TPayload> E(IError error, string message = null)
-        {
-            return new Result<TPayload>(success: false, message: message);
         }
     }
 }   

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sendgrid" Version="9.24.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" />
+    <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" />
+  </ItemGroup>
+
+
+</Project>

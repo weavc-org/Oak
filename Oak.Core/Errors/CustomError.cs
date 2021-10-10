@@ -3,14 +3,14 @@ namespace Oak.Core.Errors
     /// <summary>
     /// For one off errors
     /// </summary>
-    public class CustomError : IError
+    public class CustomError<T> : IError<T>
     {
         public CustomError(
             int statusCode, 
             string errorType, 
             string standardMessage, 
             string errorMessage = null, 
-            object details = null)
+            T details = default)
         {
             this.StatusCode = statusCode;
             this.ErrorType = errorType;
@@ -23,7 +23,7 @@ namespace Oak.Core.Errors
         public int StatusCode { get; set; }
         public string StandardMessage { get; set; }
         public string ErrorMessage { get; set; }
-        public object Details { get; set; }
+        public T Details { get; set; }
     }
 }
  

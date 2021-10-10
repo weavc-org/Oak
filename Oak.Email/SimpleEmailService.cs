@@ -3,7 +3,6 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Oak.Core;
-using Oak.Email.Client;
 
 namespace Oak.Email
 {
