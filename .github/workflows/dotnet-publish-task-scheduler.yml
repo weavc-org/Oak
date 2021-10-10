@@ -1,5 +1,7 @@
 name: Dotnet Publish Oak.TaskScheduler Package
 
+on:
+
 jobs:
   build:
 
