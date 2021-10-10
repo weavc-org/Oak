@@ -20,4 +20,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./tests/Oak.Tests.csproj
     - name: Test
-      run: dotnet test test/ --verbosity normal
+      run: dotnet test tests/ --verbosity normal
