@@ -6,11 +6,12 @@
     <Title>Oak.TaskScheduler</Title>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Chris (@ChrisWeaver1)</Authors>
+    <Version>0.0.1</Version>
     <Company>-</Company>
-    <PackageProjectUrl>https://github.com/weavc/Oak.TaskScheduler</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/weavc/Oak.Core/tree/master/Oak.TaskScheduler</PackageProjectUrl>
     <Description></Description>
     <Summary></Summary>
-    <RepositoryUrl>https://github.com/weavc/Oak.TaskScheduler</RepositoryUrl>
+    <RepositoryUrl>https://github.com/weavc/Oak.Core</RepositoryUrl>
     <PackageTags>tasks schedule cron</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
     <AssemblyName>Oak.TaskScheduler</AssemblyName>
