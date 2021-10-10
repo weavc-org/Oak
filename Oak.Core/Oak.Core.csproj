@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Oak.TaskScheduler\Oak.TaskScheduler.csproj" />
+    <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" />
+  </ItemGroup>
+
+</Project>
