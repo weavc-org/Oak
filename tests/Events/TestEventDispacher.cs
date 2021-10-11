@@ -20,7 +20,7 @@ namespace Oak.Tests.Events
                 });
 
             }
-            return new EventDispatcher(provider);
+            return new DefaultEventDispatcher(provider);
         }
 
         [Test]
