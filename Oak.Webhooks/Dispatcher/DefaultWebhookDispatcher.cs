@@ -1,18 +1,25 @@
 using System.Threading.Tasks;
 using Oak.Shared;
 
-namespace Oak.Webhooks
+namespace Oak.Webhooks.Implementations
 {
     public class DefaultWebhookDispatcher : IWebhookDispatcher
     {
-        public IWebhook<T> CreateWebhook<T>(string url, WebhookType type)
+        private readonly IWebhookClientFactory clientFactory;
+
+        public DefaultWebhookDispatcher(IWebhookClientFactory clientFactory)
         {
-            throw new System.NotImplementedException();
+            this.clientFactory = clientFactory;
         }
 
-        public Task<Result> Send<T>(string url, WebhookType type)
+        public IWebhook<T> CreateWebhook<T>(string url, WebhookType type)
         {
-            throw new System.NotImplementedException();
+            return new Webhook<T>(this.clientFactory) { Type = type, Url = url };
+        }
+
+        public async Task<Result> Send<T>(string url, WebhookType type, T data)
+        {
+            return await this.CreateWebhook<T>(url, type).Send(data);
         }
     }
 }

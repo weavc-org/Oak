@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Oak.Events;
+using Oak.Webhooks.Implementations;
 
 namespace Oak.Webhooks
 {
@@ -8,9 +9,8 @@ namespace Oak.Webhooks
         public static void AddOakWebhooks(this IServiceCollection services)
         {
             services.AddHttpClient<IWebhookClient, PostJsonWebhookClient>();
-
-            services.AddScoped<IWebhookClientFactory, WebhookClientFactory>();
-            services.AddTransient<IWebhookDispatcher, WebhookDispatcher>();
+            services.AddScoped<IWebhookClientFactory, DefaultWebhookClientFactory>();
+            services.AddTransient<IWebhookDispatcher, DefaultWebhookDispatcher>();
         }
 
         public static void AddWebhook<TWebhook, T>(this IServiceCollection services) where TWebhook : class, IWebhook<T>
@@ -20,16 +20,12 @@ namespace Oak.Webhooks
 
         public static void AddWebhookEvent<TEvent>(this IServiceCollection services, string url, WebhookType type = WebhookType.Post_Json) where TEvent : class, IEvent
         {
-
-            // Need to be able to configure WebhookEventHandler with type and url
-            // see: https://github.dev/dotnet/runtime/blob/main/src/libraries/Microsoft.Extensions.Http/src/DependencyInjection/HttpClientFactoryServiceCollectionExtensions.cs
-            services.AddEvent<WebhookEventHandler<TEvent>, TEvent>();
-            services.AddAsyncEvent<WebhookEventHandler<TEvent>, TEvent>();
+            services.AddTransient(s => WebhookEventHandler<TEvent>.CreateAsyncEventHandler(s, url, type));
         }
 
         public static void AddWebhook<T>(this IServiceCollection services, string url, WebhookType type = WebhookType.Post_Json)
         {
-            services.AddTransient<IWebhook<T>, Webhook<T>>();
+            services.AddTransient(s => Webhook<T>.CreateWebhook(s, url, type));
         }
 
         // IWebhookDispatcher<T>.Send(url, type, T)

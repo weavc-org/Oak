@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Oak.Shared;
 
-namespace Oak.Webhooks
+namespace Oak.Webhooks.Implementations
 {
     public class PostJsonWebhookClient : IWebhookClient
     {
