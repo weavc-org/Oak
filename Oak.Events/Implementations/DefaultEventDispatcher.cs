@@ -7,14 +7,14 @@ using Microsoft.Extensions.Logging;
 
 namespace Oak.Events.Implementations
 {
-    public class EventDispatcher : IEventDispatcher, IAsyncDisposable
+    public class DefaultEventDispatcher : IEventDispatcher, IAsyncDisposable
     {
         private readonly IServiceScope _serviceProvider;
-        private readonly ILogger<EventDispatcher> _logger;
+        private readonly ILogger<DefaultEventDispatcher> _logger;
 
-        public EventDispatcher(
+        public DefaultEventDispatcher(
             IServiceProvider serviceProvider, 
-            ILogger<EventDispatcher> logger = null)
+            ILogger<DefaultEventDispatcher> logger = null)
         {
             this._serviceProvider = serviceProvider.CreateScope();
             this._logger = logger;
