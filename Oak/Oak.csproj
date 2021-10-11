@@ -12,6 +12,7 @@
     <ProjectReference Include="..\Oak.UserContext\Oak.UserContext.csproj" />
     <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" />
     <ProjectReference Include="..\Oak.Email.Sendgrid\Oak.Email.Sendgrid.csproj" />
+    <ProjectReference Include="..\Oak.Webhooks\Oak.Webhooks.csproj" />
   </ItemGroup>
 
 </Project>
