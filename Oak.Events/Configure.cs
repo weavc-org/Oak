@@ -7,7 +7,7 @@ namespace Oak.Events
     {
         public static void AddOakEventDispatcher(this IServiceCollection services)
         {
-            services.AddScoped<IEventDispatcher, EventDispatcher>();
+            services.AddScoped<IEventDispatcher, DefaultEventDispatcher>();
         }
 
         public static void AddEvent<TEventHandler, TEvent>(this IServiceCollection services) where TEvent : IEvent where TEventHandler : class, IEventHandler<TEvent>
