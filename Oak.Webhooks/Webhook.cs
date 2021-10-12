@@ -22,14 +22,14 @@ namespace Oak.Webhooks
         }
 
         public virtual string Url { get; set; }
-        public virtual WebhookType Type { get; set; }
+        public virtual string Type { get; set; }
 
         public virtual Task<Result> Send(T data)
         {
             return this._webhookClientFactory.GetWebhookClient(this.Type).Send(this.Url, data);
         }
 
-        public static Webhook<T> CreateWebhook(IServiceProvider s, string url, WebhookType type)
+        public static Webhook<T> CreateWebhook(IServiceProvider s, string url, string type = WebhookTypes.PostJson)
         {
             var clientFactory = s.GetRequiredService<IWebhookClientFactory>();
             return new Webhook<T>(clientFactory) { Url = url, Type = type };

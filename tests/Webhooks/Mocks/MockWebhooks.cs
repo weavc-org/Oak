@@ -6,7 +6,7 @@ namespace Oak.Tests.Webhooks.Mocks
     public class MockWebhook1 : IWebhook<string>
     {
         public string Url => "https://test.com/api/hook1";
-        public WebhookType Type => WebhookType.Post_Json;
+        public string Type => WebhookTypes.PostJson;
 
         public Task<Result> Send(string data)
         {

@@ -17,10 +17,10 @@ namespace Oak.Webhooks
         string Url { get; }
 
         /// <summary>
-        /// Type of webhook client / request to make. See <see cref="WebhookType"/> for 
+        /// Type of webhook client / request to make. See <see cref="WebhookTypes"/> for 
         /// available types. 
         /// </summary>
-        WebhookType Type { get; }
+        string Type { get; }
 
         /// <summary>
         /// Trigger webhook to send data

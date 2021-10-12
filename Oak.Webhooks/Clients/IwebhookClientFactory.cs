@@ -5,6 +5,6 @@ namespace Oak.Webhooks.Clients
     /// </summary>
     public  interface IWebhookClientFactory
     {
-        IWebhookClient GetWebhookClient(WebhookType type);
+        IWebhookClient GetWebhookClient(string type);
     }
 }

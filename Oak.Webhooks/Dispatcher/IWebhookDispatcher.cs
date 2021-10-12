@@ -8,9 +8,9 @@ namespace Oak.Webhooks.Dispatcher
     /// </summary>
     public interface IWebhookDispatcher
     {
-        IWebhook<T> CreateWebhook<T>(string url, WebhookType type);
+        IWebhook<T> CreateWebhook<T>(string url, string type);
         TWebhook GetWebhook<TWebhook, T>() where TWebhook : IWebhook<T>;
-        Task<Result> Send<T>(string url, WebhookType type, T data);
+        Task<Result> Send<T>(string url, string type, T data);
         Task<Result> Send<T>(IWebhook<T> webhook, T data);
     }
 }

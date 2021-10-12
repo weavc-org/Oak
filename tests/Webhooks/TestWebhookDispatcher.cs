@@ -37,7 +37,7 @@ namespace Oak.Tests.Webhooks
         public void Test_CreateWebhook()
         {
             var dispatcher = this.getDispatcher();
-            var webhook = dispatcher.CreateWebhook<string>(this._testUrl, WebhookType.Post_Json);
+            var webhook = dispatcher.CreateWebhook<string>(this._testUrl, WebhookTypes.PostJson);
             this.testWebhook(webhook, this._testUrl);
         }
 
@@ -53,7 +53,7 @@ namespace Oak.Tests.Webhooks
             this.testWebhook<object>(webhook2, this._testUrl);
         }
 
-        private void testWebhook<T>(IWebhook<T> webhook, string url, WebhookType type = WebhookType.Post_Json, Type typeOf = null)
+        private void testWebhook<T>(IWebhook<T> webhook, string url, string type = WebhookTypes.PostJson, Type typeOf = null)
         {
             if (typeOf == null)
                 typeOf = typeof(Webhook<T>);

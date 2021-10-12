@@ -14,7 +14,7 @@ namespace Oak.Webhooks.Clients.Implementations
             this._serviceProvider = serviceProvider;
         }
 
-        public IWebhookClient GetWebhookClient(WebhookType type)
+        public IWebhookClient GetWebhookClient(string type)
         {
             return this._serviceProvider
                 .GetServices<IWebhookClient>()

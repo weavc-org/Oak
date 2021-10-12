@@ -26,22 +26,22 @@ namespace Oak.Webhooks.Events.Implementations
                 return Task.CompletedTask;
 
             var url = (string)args.GetType()?.GetProperty("Url")?.GetValue(args);
-            var type = (WebhookType?)args.GetType()?.GetProperty("Type")?.GetValue(args);
+            var type = (string)args.GetType()?.GetProperty("Type")?.GetValue(args);
             var data = (object)args.GetType()?.GetProperty("Data")?.GetValue(args);
 
             if (string.IsNullOrEmpty(url))
                 throw new Exception("Url value is null");
 
-            if (type == null)
+            if (string.IsNullOrEmpty(type))
                 throw new Exception("Type value is null");
 
             if (data == null || data == default)
                 throw new Exception("Data value is null");
 
-            return this._send(url, (WebhookType)type, data);
+            return this._send(url, type, data);
         }
 
-        private Task<Result> _send(string url, WebhookType type, object data)
+        private Task<Result> _send(string url, string type, object data)
         {
             return this._webhookClientFactory.GetWebhookClient(type).Send(url, data);
         }

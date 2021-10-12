@@ -23,7 +23,7 @@ namespace Oak.Webhooks.Clients.Implementations
             this._logger = logger;
         }
 
-        public override WebhookType Type => WebhookType.Post_Json;
+        public override string Type => WebhookTypes.PostJson;
 
         protected override async Task<Result> _send<T>(string url, T data)
         {

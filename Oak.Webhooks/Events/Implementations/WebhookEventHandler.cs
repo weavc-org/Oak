@@ -22,7 +22,7 @@ namespace Oak.Webhooks.Events.Implementations
         }
 
         public string Url { get; set; }
-        public WebhookType Type { get; set; }
+        public string Type { get; set; }
 
         public void HandleEvent(T args)
         {
@@ -39,13 +39,13 @@ namespace Oak.Webhooks.Events.Implementations
             return this._webhookClientFactory.GetWebhookClient(this.Type).Send(this.Url, data);
         }
 
-        public static IAsyncEventHandler<T> CreateAsyncEventHandler(IServiceProvider s, string url, WebhookType type)
+        public static IAsyncEventHandler<T> CreateAsyncEventHandler(IServiceProvider s, string url, string type = WebhookTypes.PostJson)
         {
             var clientFactory = s.GetRequiredService<IWebhookClientFactory>();
             return new WebhookEventHandler<T>(clientFactory) { Url = url, Type = type };
         }
 
-        public static IEventHandler<T> CreateEventHandler(IServiceProvider s, string url, WebhookType type)
+        public static IEventHandler<T> CreateEventHandler(IServiceProvider s, string url, string type = WebhookTypes.PostJson)
         {
             var clientFactory = s.GetRequiredService<IWebhookClientFactory>();
             return new WebhookEventHandler<T>(clientFactory) { Url = url, Type = type };

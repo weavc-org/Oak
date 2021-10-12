@@ -19,7 +19,7 @@ namespace Oak.Webhooks.Dispatcher.Implementations
             this._serviceProvider = serviceProvider;
         }
 
-        public IWebhook<T> CreateWebhook<T>(string url, WebhookType type)
+        public IWebhook<T> CreateWebhook<T>(string url, string type)
         {
             return new Webhook<T>(this._clientFactory) { Type = type, Url = url };
         }
@@ -29,7 +29,7 @@ namespace Oak.Webhooks.Dispatcher.Implementations
             return this._serviceProvider.GetService<TWebhook>();
         }
 
-        public async Task<Result> Send<T>(string url, WebhookType type, T data)
+        public async Task<Result> Send<T>(string url, string type, T data)
         {
             return await this.CreateWebhook<T>(url, type).Send(data);
         }

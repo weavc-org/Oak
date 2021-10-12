@@ -15,7 +15,7 @@ namespace Oak.Tests.Webhooks.Mocks
         {
             var mock = new Mock<IWebhookClient>();
 
-            mock.Setup(m => m.Type).Returns(WebhookType.Post_Json);
+            mock.Setup(m => m.Type).Returns(WebhookTypes.PostJson);
             mock.Setup(m => m.Send(It.IsAny<string>(), It.IsAny<It.IsAnyType>()))
                 .Returns(Task.FromResult(new Result(success: true)));
 
@@ -26,7 +26,7 @@ namespace Oak.Tests.Webhooks.Mocks
         {
             var mock = new Mock<IWebhookClient>();
 
-            mock.Setup(m => m.Type).Returns(WebhookType.Post_Json);
+            mock.Setup(m => m.Type).Returns(WebhookTypes.PostJson);
             mock.Setup(m => m.Send(It.IsAny<string>(), It.IsAny<It.IsAnyType>()))
                 .Returns(Task.FromResult(new Result(success: false, message: "Not Found")));
 
@@ -37,7 +37,7 @@ namespace Oak.Tests.Webhooks.Mocks
         {
             var mock = new Mock<IWebhookClient>();
 
-            mock.Setup(m => m.Type).Returns(WebhookType.Post_Json);
+            mock.Setup(m => m.Type).Returns(WebhookTypes.PostJson);
             mock.Setup(m => m.Send(It.IsAny<string>(), It.IsAny<It.IsAnyType>()))
                 .Throws(new Exception("Error parsing json"));
 

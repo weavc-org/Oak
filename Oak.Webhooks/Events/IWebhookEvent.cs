@@ -10,7 +10,7 @@ namespace Oak.Webhooks.Events
     public interface IWebhookEvent<T> : IEvent
     {
         string Url { get; }
-        WebhookType Type { get; }
+        string Type { get; }
         T Data { get; }
     }
 }

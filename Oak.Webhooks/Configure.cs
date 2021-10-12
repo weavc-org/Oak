@@ -48,7 +48,7 @@ namespace Oak.Webhooks
         /// <param name="type">Type of webhook to use. This defines the type of call that will 
         /// be used when the webhook is sent. See <see cref="WebhookType"/> for available types.</param>
         /// <typeparam name="T"></typeparam>
-        public static void AddWebhook<T>(this IServiceCollection serviceCollection, string url, WebhookType type = WebhookType.Post_Json)
+        public static void AddWebhook<T>(this IServiceCollection serviceCollection, string url, string type = WebhookTypes.PostJson)
         {
             serviceCollection.AddOakWebhooks();
             serviceCollection.AddTransient(s => Webhook<T>.CreateWebhook(s, url, type));

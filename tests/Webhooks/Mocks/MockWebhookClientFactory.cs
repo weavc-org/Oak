@@ -17,7 +17,7 @@ namespace Oak.Tests.Webhooks.Mocks
                 returnValue = new MockClients().Post_Json();
 
             var mock = new Mock<IWebhookClientFactory>();
-            mock.Setup(m => m.GetWebhookClient(It.IsAny<WebhookType>())).Returns(returnValue.Object);
+            mock.Setup(m => m.GetWebhookClient(It.IsAny<string>())).Returns(returnValue.Object);
 
             return mock;
         }

@@ -9,7 +9,7 @@ namespace Oak.Webhooks.Clients
     /// </summary>
     public interface IWebhookClient
     {
-        WebhookType Type { get; }
+        string Type { get; }
         Task<Result> Send<T>(string url, T data);
     }
 }

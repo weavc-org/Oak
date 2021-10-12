@@ -4,8 +4,8 @@ namespace Oak.Webhooks
     /// Types of webhook. Used to identify which 
     /// <see cref="IWebhookClient"/> to use when sending the request.
     /// </summary>
-    public enum WebhookType
+    public static class WebhookTypes
     {
-        Post_Json   
+        public const string PostJson = "Oak.PostJson";    
     }
 }

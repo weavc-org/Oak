@@ -18,7 +18,7 @@ namespace Oak.Webhooks.Clients
             this.eventDispatcher = eventDispatcher;
         }
 
-        public abstract WebhookType Type { get; }
+        public abstract string Type { get; }
 
         public virtual async Task<Result> Send<T>(string url, T data)
         {

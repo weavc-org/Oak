@@ -9,7 +9,7 @@ namespace Oak.Webhooks.Events
     public class OnWebhookEvent<T> : IEvent
     {
         public OnWebhookEvent(
-            object sender, string url, WebhookType type, T data)
+            object sender, string url, string type, T data)
         {
             this.Sender = sender;
             this.Url = url;
@@ -19,7 +19,7 @@ namespace Oak.Webhooks.Events
 
         public object Sender { get; set; }
         public string Url { get; set; }
-        public WebhookType Type { get; set; }
+        public string Type { get; set; }
         public T Data { get; set; }
     }
 }

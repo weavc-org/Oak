@@ -34,17 +34,17 @@ namespace Oak.Tests.Webhooks
         public void Test_GetClient()
         {
             var factory = this.getFactory();
-            var client = factory.GetWebhookClient(WebhookType.Post_Json);
+            var client = factory.GetWebhookClient(WebhookTypes.PostJson);
             
             Assert.IsNotNull(client);
-            Assert.AreEqual(WebhookType.Post_Json, client.Type);
+            Assert.AreEqual(WebhookTypes.PostJson, client.Type);
         }
 
         [Test]
         public void Test_GetNonExistantClient()
         {
             var factory = this.getFactory(new MockServiceProvider().Provider());
-            var client = factory.GetWebhookClient(WebhookType.Post_Json);
+            var client = factory.GetWebhookClient(WebhookTypes.PostJson);
             
             Assert.IsNull(client);
         }
