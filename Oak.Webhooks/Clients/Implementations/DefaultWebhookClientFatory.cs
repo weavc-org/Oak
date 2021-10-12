@@ -16,8 +16,9 @@ namespace Oak.Webhooks.Clients.Implementations
 
         public IWebhookClient GetWebhookClient(WebhookType type)
         {
-            var clients = this._serviceProvider.GetServices<IWebhookClient>();
-            return clients.FirstOrDefault(s => s.Type == type);
+            return this._serviceProvider
+                .GetServices<IWebhookClient>()
+                .FirstOrDefault(s => s.Type == type);
         }
     }
 }

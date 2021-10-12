@@ -24,7 +24,7 @@ namespace Oak.Webhooks.Dispatcher.Implementations
             return new Webhook<T>(this._clientFactory) { Type = type, Url = url };
         }
 
-        public IWebhook<T> GetWebhook<TWebhook, T>() where TWebhook : IWebhook<T>
+        public TWebhook GetWebhook<TWebhook, T>() where TWebhook : IWebhook<T>
         {
             return this._serviceProvider.GetService<TWebhook>();
         }
