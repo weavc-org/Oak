@@ -1,7 +1,8 @@
 using System.Threading.Tasks;
 using Oak.Shared;
+using Oak.Webhooks.Clients;
 
-namespace Oak.Webhooks.Implementations
+namespace Oak.Webhooks.Dispatcher.Implementations
 {
     public class DefaultWebhookDispatcher : IWebhookDispatcher
     {

@@ -15,14 +15,16 @@ namespace Oak.Events.Implementations
 
         public override void Emit(IEvent @event)
         {
-            base.Emit(@event);
-            base.EmitAsync(@event).GetAwaiter().GetResult();
+            base._emit(@event);
+            base._emitAsync(@event).GetAwaiter().GetResult();
+            this._emit(new PostEmitEvent(@event.Sender, @event));
         }
 
         public override async Task EmitAsync(IEvent @event)
         {
-            base.Emit(@event);
-            await base.EmitAsync(@event);
+            base._emit(@event);
+            await base._emitAsync(@event);
+            await this._emitAsync(new PostEmitEvent(@event.Sender, @event));
         }
     }
 }

@@ -46,6 +46,12 @@ namespace Oak.Events.Implementations
 
         public virtual void Emit(IEvent @event)
         {
+            this._emit(@event);
+            this._emit(new PostEmitEvent(@event.Sender, @event));
+        }
+
+        protected virtual void _emit(IEvent @event)
+        {
             var eventType = @event.GetType();
             var eventHandler = typeof(IEventHandler<>).MakeGenericType(eventType);
             var events = this._serviceProvider.ServiceProvider.GetServices(eventHandler);
@@ -65,7 +71,13 @@ namespace Oak.Events.Implementations
             }
         }
 
-        public virtual async Task EmitAsync(IEvent @event)
+        public async virtual Task EmitAsync(IEvent @event)
+        {
+            await this._emitAsync(@event);
+            await this._emitAsync(new PostEmitEvent(@event.Sender, @event));
+        }
+
+        protected virtual async Task _emitAsync(IEvent @event)
         {
             var eventType = @event.GetType();
             var eventHandler = typeof(IAsyncEventHandler<>).MakeGenericType(eventType);

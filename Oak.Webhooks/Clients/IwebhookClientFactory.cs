@@ -1,4 +1,4 @@
-namespace Oak.Webhooks
+namespace Oak.Webhooks.Clients
 {
     public  interface IWebhookClientFactory
     {

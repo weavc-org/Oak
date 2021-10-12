@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Oak.Shared;
 
-namespace Oak.Webhooks
+namespace Oak.Webhooks.Clients
 {
     public  interface IWebhookClient
     {

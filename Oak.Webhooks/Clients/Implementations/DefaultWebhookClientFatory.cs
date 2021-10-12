@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Oak.Webhooks.Implementations
+namespace Oak.Webhooks.Clients.Implementations
 {
     public class DefaultWebhookClientFactory : IWebhookClientFactory
     {
