@@ -6,19 +6,25 @@ using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks
 {
+    /// <summary>
+    /// Basic implementation of <see cref="IWebhook{T}"/>. 
+    /// This is used to dynamically create and register webhook definitions when
+    /// only the Url and Type is provided, see <see cref="Configure.AddWebhook{T}(IServiceCollection, string, WebhookType)"/>. 
+    /// </summary>
+    /// <typeparam name="T">Type of model to be sent with the webhook.</typeparam>
     public class Webhook<T> : IWebhook<T>
     {
-        private readonly IWebhookClientFactory _webhookClientFactory;
+        protected readonly IWebhookClientFactory _webhookClientFactory;
 
         public Webhook(IWebhookClientFactory webhookClientFactory)
         {
             this._webhookClientFactory = webhookClientFactory;
         }
 
-        public string Url { get; set; }
-        public WebhookType Type { get; set; }
+        public virtual string Url { get; set; }
+        public virtual WebhookType Type { get; set; }
 
-        public Task<Result> Send(T data)
+        public virtual Task<Result> Send(T data)
         {
             return this._webhookClientFactory.GetWebhookClient(this.Type).Send(this.Url, data);
         }
