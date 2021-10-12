@@ -20,7 +20,7 @@ namespace Oak.Webhooks
 
         public static void AddWebhook<TWebhook, T>(this IServiceCollection services) where TWebhook : class, IWebhook<T>
         {
-            services.AddTransient<IWebhook<T>, TWebhook>();
+            services.AddTransient<TWebhook, TWebhook>();
         }
 
         public static void AddWebhook<T>(this IServiceCollection services, string url, WebhookType type = WebhookType.Post_Json)
