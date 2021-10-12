@@ -16,6 +16,9 @@ namespace Oak.Tests.Events
                 provider = service.Provider((s) => 
                 {
                     s.AddEvent<MockEventHandler, MockEvent>();
+                    s.AddEvent<MockEventHandler, MockEvent>();
+                    s.AddEvent<MockEventHandler, MockEvent>();
+                    s.AddEvent<MockEventHandler, MockEvent>();
                     s.AddAsyncEvent<MockEventHandler, MockEvent>();
                 });
 
