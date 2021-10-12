@@ -6,7 +6,12 @@ using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks.Events.Implementations
 {
-    public class DynamicWebhookEventHandler : IAsyncEventHandler<PostEmitEvent>
+    /// <summary>
+    /// <see cref="DynamicWebhookEventHandler"/> hooks into <see cref="OnPostEmitEvent"/> and looks for any emitted 
+    /// events that implement <see cref="IWebhookEvent{T}"/>. If the event does implement <see cref="IWebhookEvent{T}"/>
+    /// a webhook is triggered using the details provided in the model.
+    /// </summary>
+    public class DynamicWebhookEventHandler : IAsyncEventHandler<OnPostEmitEvent>
     {
         private readonly IWebhookClientFactory _webhookClientFactory;
 
@@ -15,7 +20,7 @@ namespace Oak.Webhooks.Events.Implementations
             this._webhookClientFactory = webhookClientFactory;
         }
 
-        public Task HandleEventAsync(PostEmitEvent args)
+        public Task HandleEventAsync(OnPostEmitEvent args)
         {
             if (args.EmittedEvent.GetType() != typeof(IWebhookEvent<>))
                 return Task.CompletedTask;

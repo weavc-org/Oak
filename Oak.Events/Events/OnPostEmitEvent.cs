@@ -1,8 +1,8 @@
 namespace Oak.Events
 {
-    public class PostEmitEvent : IEvent
+    public class OnPostEmitEvent : IEvent
     {
-        public PostEmitEvent(
+        public OnPostEmitEvent(
             object sender, 
             IEvent emittedEvent)
         {

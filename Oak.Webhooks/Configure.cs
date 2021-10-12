@@ -20,7 +20,7 @@ namespace Oak.Webhooks
             serviceCollection.AddHttpClient<IWebhookClient, PostJsonWebhookClient>();
             serviceCollection.TryAddScoped<IWebhookClientFactory, DefaultWebhookClientFactory>();
             serviceCollection.TryAddTransient<IWebhookDispatcher, DefaultWebhookDispatcher>();
-            serviceCollection.TryAddAsyncEvent<DynamicWebhookEventHandler, PostEmitEvent>();
+            serviceCollection.TryAddAsyncEvent<DynamicWebhookEventHandler, OnPostEmitEvent>();
         }
 
         /// <summary>

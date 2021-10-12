@@ -7,6 +7,11 @@ using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks.Events.Implementations
 {
+    /// <summary>
+    /// Generic implementation of <see cref="IAsyncEventHandler{T}"/>, <see cref="IEventHandler{T}"/> and <see cref="IWebhook{T}"/>.
+    /// Will trigger a webhook when <see cref="IEvent"/> is emitted.
+    /// </summary>
+    /// <typeparam name="T">The implementation of <see cref="IEvent"/></typeparam>
     public class WebhookEventHandler<T> : IAsyncEventHandler<T>, IEventHandler<T>, IWebhook<T> where T : IEvent
     {
         private readonly IWebhookClientFactory _webhookClientFactory;
