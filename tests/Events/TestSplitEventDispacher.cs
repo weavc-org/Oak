@@ -6,7 +6,7 @@ using Oak.Events.Implementations;
 
 namespace Oak.Tests.Events
 {
-    public class TestEventDispatcher
+    public class TestSplitEventDispatcher
     {
         private IEventDispatcher _eventDispatcher(IServiceProvider provider = null)
         {
@@ -16,14 +16,11 @@ namespace Oak.Tests.Events
                 provider = service.Provider((s) => 
                 {
                     s.AddEvent<MockEventHandler, MockEvent>();
-                    s.AddEvent<MockEventHandler, MockEvent>();
-                    s.AddEvent<MockEventHandler, MockEvent>();
-                    s.AddEvent<MockEventHandler, MockEvent>();
                     s.AddAsyncEvent<MockEventHandler, MockEvent>();
                 });
 
             }
-            return new DefaultEventDispatcher(provider);
+            return new SplitEventDispatcher(provider);
         }
 
         [Test]
@@ -32,11 +29,14 @@ namespace Oak.Tests.Events
             var dispatcher = this._eventDispatcher();
             bool wasCalled = false;
             Type typeOf = typeof(string);
+            int count = 0;
             dispatcher.Emit(new MockEvent(this, (o) => {
+                count += 1;
                 wasCalled = true;
                 typeOf = o.GetType();
             }));
 
+            Assert.AreEqual(1, count);
             Assert.IsTrue(wasCalled);
             Assert.AreEqual(this.GetType(), typeOf);
         }
@@ -47,11 +47,14 @@ namespace Oak.Tests.Events
             var dispatcher = this._eventDispatcher();
             bool wasCalled = false;
             Type typeOf = typeof(string);
+            int count = 0;
             await dispatcher.EmitAsync(new MockEvent(this, (o) => {
+                count += 1;
                 wasCalled = true;
                 typeOf = o.GetType();
             }));
 
+            Assert.AreEqual(1, count);
             Assert.IsTrue(wasCalled);
             Assert.AreEqual(this.GetType(), typeOf);
         }
@@ -152,6 +155,7 @@ namespace Oak.Tests.Events
             var provider = service.Provider((s) => 
             {
                 s.AddEvent<MockEventHandler, MockEvent>();
+                s.AddAsyncEvent<MockEventHandler, MockEvent>();
             });
 
             var dispatcher = this._eventDispatcher(provider);
@@ -161,26 +165,7 @@ namespace Oak.Tests.Events
             }));
 
             dispatcher.DisposeAsync().GetAwaiter().GetResult();
-            Assert.AreEqual(1, calls);
-        }
-
-        [Test]
-        public void Test_Event_EmitAsyncOnDispose()
-        {
-            var service = new MockServiceProvider();
-            var provider = service.Provider((s) => 
-            {
-                s.AddAsyncEvent<MockEventHandler, MockEvent>();
-            });
-
-            var dispatcher = this._eventDispatcher(provider);
-            int calls = 0;
-            dispatcher.EmitAsyncOnDispose(new MockEvent(this, (o) => {
-                calls += 1;
-            }));
-
-            dispatcher.DisposeAsync().GetAwaiter().GetResult();
-            Assert.AreEqual(1, calls);
+            Assert.AreEqual(2, calls);
         }
     }
 }
