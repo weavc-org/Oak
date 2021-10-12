@@ -3,26 +3,29 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Oak.Events;
 using Oak.Shared;
 
-namespace Oak.Webhooks.Implementations
+namespace Oak.Webhooks.Clients.Implementations
 {
-    public class PostJsonWebhookClient : IWebhookClient
+    public class PostJsonWebhookClient : WebhookClientBase, IWebhookClient
     {
         private readonly HttpClient _client;
         private readonly ILogger<PostJsonWebhookClient> _logger;
 
         public PostJsonWebhookClient(
             HttpClient client, 
-            ILogger<PostJsonWebhookClient> logger = null)
+            ILogger<PostJsonWebhookClient> logger = null,
+            IEventDispatcher eventDispatcher = null) 
+            : base(eventDispatcher)
         {
             this._client = client;
             this._logger = logger;
         }
 
-        public WebhookType Type => WebhookType.Post_Json;
+        public override WebhookType Type => WebhookType.Post_Json;
 
-        public async Task<Result> Send<T>(string url, T data)
+        protected override async Task<Result> _send<T>(string url, T data)
         {
             var json = JsonContent.Create<T>(data);
             var response = await this._client.PostAsJsonAsync($"{url}", json);

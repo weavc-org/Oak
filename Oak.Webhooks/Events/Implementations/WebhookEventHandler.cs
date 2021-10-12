@@ -3,8 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Oak.Events;
 using Oak.Shared;
+using Oak.Webhooks.Clients;
 
-namespace Oak.Webhooks.Implementations
+namespace Oak.Webhooks.Events.Implementations
 {
     public class WebhookEventHandler<T> : IAsyncEventHandler<T>, IEventHandler<T>, IWebhook<T> where T : IEvent
     {

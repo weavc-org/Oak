@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Oak.Webhooks.Implementations
+namespace Oak.Webhooks.Clients.Implementations
 {
     public class DefaultWebhookClientFactory : IWebhookClientFactory
     {
@@ -16,8 +16,9 @@ namespace Oak.Webhooks.Implementations
 
         public IWebhookClient GetWebhookClient(WebhookType type)
         {
-            var clients = this._serviceProvider.GetServices<IWebhookClient>();
-            return clients.FirstOrDefault(s => s.Type == type);
+            return this._serviceProvider
+                .GetServices<IWebhookClient>()
+                .FirstOrDefault(s => s.Type == type);
         }
     }
 }

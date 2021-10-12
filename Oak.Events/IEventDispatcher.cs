@@ -7,8 +7,6 @@ namespace Oak.Events
     {
         void Emit(IEvent @event);
         Task EmitAsync(IEvent @event);
-
         void EmitOnDispose(IEvent @event);
-        void EmitAsyncOnDispose(IEvent @event);
     }
 }

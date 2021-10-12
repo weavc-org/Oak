@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Oak.Shared;
+using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks
 {
@@ -22,7 +23,7 @@ namespace Oak.Webhooks
             return this._webhookClientFactory.GetWebhookClient(this.Type).Send(this.Url, data);
         }
 
-        public static IWebhook<T> CreateWebhook(IServiceProvider s, string url, WebhookType type)
+        public static Webhook<T> CreateWebhook(IServiceProvider s, string url, WebhookType type)
         {
             var clientFactory = s.GetRequiredService<IWebhookClientFactory>();
             return new Webhook<T>(clientFactory) { Url = url, Type = type };
