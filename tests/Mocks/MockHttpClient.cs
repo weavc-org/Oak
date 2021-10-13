@@ -8,62 +8,31 @@ using System.Net;
 
 namespace Oak.Tests.Mocks
 {
-    public class MockHttpClients
+    public class FakeMessageHandler : HttpMessageHandler
     {
-        public Mock<HttpClient> Default() 
+        private readonly int statusCode;
+
+        public FakeMessageHandler(int statusCode)
         {
-            var mock = new Mock<HttpClient>();
-            
-            mock.Setup(m => m.PostAsJsonAsync<It.IsAnyType>(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<JsonSerializerOptions>(), It.IsAny<CancellationToken>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.PutAsJsonAsync<It.IsAnyType>(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<JsonSerializerOptions>(), It.IsAny<CancellationToken>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.PostAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.PatchAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.PutAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.DeleteAsync(It.IsAny<string>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            mock.Setup(m => m.GetAsync(It.IsAny<string>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
-
-            return mock;
+            this.statusCode = statusCode;
         }
 
-        public Mock<HttpClient> ErrorResponse() 
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var mock = new Mock<HttpClient>();
-            
-            mock.Setup(m => m.PostAsJsonAsync<It.IsAnyType>(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<JsonSerializerOptions>(), It.IsAny<CancellationToken>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
+            return Task.FromResult(new HttpResponseMessage((HttpStatusCode)this.statusCode));
+        }
+    }
 
-            mock.Setup(m => m.PutAsJsonAsync<It.IsAnyType>(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<JsonSerializerOptions>(), It.IsAny<CancellationToken>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
+    public class MockHttpClients
+    {
+        public HttpClient Default() 
+        {
+            return new HttpClient(new FakeMessageHandler(200));
+        }
 
-            mock.Setup(m => m.PostAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
-
-            mock.Setup(m => m.PatchAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
-
-            mock.Setup(m => m.PutAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
-
-            mock.Setup(m => m.DeleteAsync(It.IsAny<string>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
-
-            mock.Setup(m => m.GetAsync(It.IsAny<string>()))
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadRequest)));
-
-            return mock;
+        public HttpClient ErrorResponse() 
+        {
+            return new HttpClient(new FakeMessageHandler(400));
         }
     }
 }

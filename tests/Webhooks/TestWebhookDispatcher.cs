@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using Oak.Webhooks;
 using Oak.Webhooks.Dispatcher;
@@ -51,6 +52,26 @@ namespace Oak.Tests.Webhooks
             
             var webhook2 = dispatcher.GetWebhook<Webhook<object>, object>();
             this.testWebhook<object>(webhook2, this._testUrl);
+        }
+
+        [Test]
+        public async Task Test_Send()
+        {
+            var dispatcher = this.getDispatcher();
+
+            var webhook1 = await dispatcher.Send<string>(this._testUrl, WebhookTypes.PostJson, "Hello World");
+            
+            Assert.IsTrue(webhook1.Success);
+        }
+
+        [Test]
+        public async Task Test_Send2()
+        {
+            var dispatcher = this.getDispatcher();
+
+            var webhook1 = await dispatcher.Send<string>(new Mocks.MockWebhook1(), "hello world");
+            
+            Assert.IsTrue(webhook1.Success);
         }
 
         private void testWebhook<T>(IWebhook<T> webhook, string url, string type = WebhookTypes.PostJson, Type typeOf = null)
