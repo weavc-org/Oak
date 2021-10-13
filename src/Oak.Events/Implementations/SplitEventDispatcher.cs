@@ -9,14 +9,14 @@ namespace Oak.Events.Implementations
 {
     public class SplitEventDispatcher : IEventDispatcher, IAsyncDisposable
     {
-        private readonly IServiceScope _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<SplitEventDispatcher> _logger;
 
         public SplitEventDispatcher(
             IServiceProvider serviceProvider, 
             ILogger<SplitEventDispatcher> logger = null)
         {
-            this._serviceProvider = serviceProvider.CreateScope();
+            this._serviceProvider = serviceProvider;
             this._logger = logger;
         }
 
@@ -34,8 +34,6 @@ namespace Oak.Events.Implementations
                 await this._emitAsync(e);
                 this._emit(e);
             }
-
-            this._serviceProvider.Dispose();
         }
 
         public virtual void Emit(IEvent @event)
@@ -48,7 +46,7 @@ namespace Oak.Events.Implementations
         {
             var eventType = @event.GetType();
             var eventHandler = typeof(IEventHandler<>).MakeGenericType(eventType);
-            var events = this._serviceProvider.ServiceProvider.GetServices(eventHandler);
+            var events = this._serviceProvider.GetServices(eventHandler);
 
             foreach(var e in events)
             {
@@ -75,7 +73,7 @@ namespace Oak.Events.Implementations
         {
             var eventType = @event.GetType();
             var eventHandler = typeof(IAsyncEventHandler<>).MakeGenericType(eventType);
-            var events = this._serviceProvider.ServiceProvider.GetServices(eventHandler);
+            var events = this._serviceProvider.GetServices(eventHandler);
 
             await Task.WhenAll(events.Select(e =>
             {

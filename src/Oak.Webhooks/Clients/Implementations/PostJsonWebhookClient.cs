@@ -1,10 +1,11 @@
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Oak.Events;
 using Oak.Shared;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace Oak.Webhooks.Clients.Implementations
 {
@@ -27,10 +28,10 @@ namespace Oak.Webhooks.Clients.Implementations
 
         protected override async Task<Result> _send<T>(string url, T data)
         {
-            var json = JsonContent.Create<T>(data);
-            var response = await this._client.PostAsJsonAsync($"{url}", json);
+            var json = JsonConvert.SerializeObject(data);
+            var response = await this._client.PostAsync($"{url}", new StringContent(json, Encoding.UTF8, "application/json"));
 
-            if (response.StatusCode != HttpStatusCode.OK)
+            if ((int)response.StatusCode >= 400)
             {
                 var error = await response.Content.ReadAsStringAsync();
 
