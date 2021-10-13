@@ -36,12 +36,11 @@ namespace Oak.Email.Smtp
             if (!this._emailOptions.Active)
                 return new Result(success: false, error: new UnavailableError("Email currently unavailable"));
 
-            var token = new CancellationTokenSource();
-            token.CancelAfter(timeout);
+            this._client.Timeout = timeout;
 
             try
             {
-                await this._client.SendMailAsync(mail, token.Token);
+                await this._client.SendMailAsync(mail);
             }
             catch (Exception ex)
             {
