@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ '*' ]
 
 jobs:
   build:
@@ -13,11 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+
     - name: Restore dependencies
-      run: dotnet restore ./tests/Oak.Tests.csproj
+      run: dotnet restore tests/
+
     - name: Test
-      run: dotnet test tests/ --verbosity normal
+      run: dotnet test tests/
