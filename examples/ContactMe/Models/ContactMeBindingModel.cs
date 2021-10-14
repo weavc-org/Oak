@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ContactMe.Webhooks
+namespace ContactMe.Models
 {
     public class ContactMeBindingModel
     {

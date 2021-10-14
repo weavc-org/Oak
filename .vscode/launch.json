@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "examples/ContactMe.Webhooks Launch (web)",
+            "name": "examples/ContactMe Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build_contactme_webhooks",
-            "program": "${workspaceFolder}/examples/ContactMe.Webhooks/bin/Debug/net5.0/ContactMe.Webhooks.dll",
+            "preLaunchTask": "build_contactme",
+            "program": "${workspaceFolder}/examples/ContactMe/bin/Debug/net5.0/ContactMe.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/examples/ContactMe.Webhooks/",
+            "cwd": "${workspaceFolder}/examples/ContactMe/",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

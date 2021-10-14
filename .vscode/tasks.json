@@ -14,12 +14,12 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build_contactme_webhooks",
+            "label": "build_contactme",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/examples/ContactMe.Webhooks/ContactMe.Webhooks.csproj",
+                "${workspaceFolder}/examples/ContactMe/ContactMe.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

@@ -1,3 +1,5 @@
+using ContactMe.Models;
+using ContactMe.Webhooks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +9,7 @@ using Microsoft.OpenApi.Models;
 using Oak.Events;
 using Oak.Webhooks;
 
-namespace ContactMe.Webhooks
+namespace ContactMe
 {
     public class Startup
     {
@@ -32,6 +34,7 @@ namespace ContactMe.Webhooks
             services.AddOakEventDispatcher();
             services.AddAsyncEvent<DiscordWebhook, ContactMeEvent>();
             services.AddWebhook<DiscordWebhook, DiscordWebhookRequest>();
+            services.Configure<DiscordOptions>(this.Configuration.GetSection("Discord"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

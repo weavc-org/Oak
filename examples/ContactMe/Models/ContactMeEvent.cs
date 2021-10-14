@@ -1,6 +1,6 @@
 ﻿using Oak.Events;
 
-namespace ContactMe.Webhooks
+namespace ContactMe.Models
 {
     public class ContactMeEvent : ContactMeBindingModel, IEvent
     {

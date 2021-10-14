@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using ContactMe.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Oak.Events;
 
-namespace ContactMe.Webhooks.Controllers
+namespace ContactMe.Controllers
 {
     [ApiController]
     [Route("contact")]
