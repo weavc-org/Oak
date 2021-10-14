@@ -31,7 +31,7 @@ namespace ContactMe
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContactMe.Webhooks", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContactMe", Version = "v1" });
             });
 
             services.AddOakWebhooks();
@@ -55,7 +55,7 @@ namespace ContactMe
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContactMe.Webhooks v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContactMe v1"));
             }
 
             app.UseHttpsRedirection();
