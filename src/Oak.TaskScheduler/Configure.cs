@@ -5,10 +5,11 @@ using Oak.TaskScheduler.Services;
 namespace Oak.TaskScheduler
 {
     public static class ConfigureScheduler
-    {
+    {   
         /// <summary>
-        /// Add Scheduler and other required services.
+        /// Adds Task scheduler and other required services to <see cref="IServiceCollection"/>.
         /// </summary>
+        /// <param name="options">Configure the scheduler using <see cref="SchedulerOptions"/>.</param>
         public static void AttachHostedScheduler(this IServiceCollection serviceCollection, Action<SchedulerOptions> options = null)
         {
             // use default options

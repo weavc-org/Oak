@@ -1,7 +1,10 @@
 using System;
 
 namespace Oak.TaskScheduler
-{
+{    
+    /// <summary>
+    /// Create an occurrence every x minutes.
+    /// </summary>
     public class EveryXMinutesOccurrence : TimespanOccurrenceBase, IOccurrence
     {
         /// <summary>

@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 using Oak.Events;
 
 namespace Oak.Tests.Events
@@ -11,7 +12,10 @@ namespace Oak.Tests.Events
             this.Action = action;
         }
 
+        //[JsonIgnore]
         public object Sender { get; set; }
+        [JsonIgnore]
         public Action<object> Action  { get; set; }
+        public string Value => "Value";
     }
 }
