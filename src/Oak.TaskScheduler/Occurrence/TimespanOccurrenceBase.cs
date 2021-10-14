@@ -41,8 +41,7 @@ namespace Oak.TaskScheduler
             var date = new DateTime(next);
 
             // Add the offset to the next occurrence
-            if (this.offset != null && this.offset != default)
-                date = date + offset;
+            date = date + offset;
 
             // If the offset has caused the timespan between runs to be greater
             // than the scheduled occurrence, offset the value by the timespan

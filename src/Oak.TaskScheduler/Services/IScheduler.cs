@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Oak.TaskScheduler.Services
 {    
     /// <summary>
-    /// Scheduler background service. Handles asyncronous & concurrent execution of tasks.
+    /// Scheduler background service. 
     /// </summary>
     public interface IScheduler
     {
