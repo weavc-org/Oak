@@ -31,11 +31,11 @@ namespace Oak.Webhooks.Clients.Implementations
             var json = JsonConvert.SerializeObject(data);
             var response = await this._client.PostAsync($"{url}", new StringContent(json, Encoding.UTF8, "application/json"));
 
-            if ((int)response.StatusCode >= 400)
+            if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsStringAsync();
 
-                this._logger?.LogCritical(error);
+                this._logger?.LogError($"Response from {url}: ({(int)response.StatusCode}) {error}");
                 return new Result(success: false, message: error);
             }
 
