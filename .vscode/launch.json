@@ -2,6 +2,23 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "examples/ContactMe Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_contactme",
+            "program": "${workspaceFolder}/examples/ContactMe/bin/Debug/net5.0/ContactMe.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/examples/ContactMe/",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
             // Use IntelliSense to find out which attributes exist for C# debugging
             // Use hover for the description of the existing attributes
             // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
