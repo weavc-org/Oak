@@ -8,6 +8,7 @@ namespace ContactMe.Models
         {
             base.Email = model.Email;
             base.Body = model.Body;
+            base.Name = model.Name;
             this.Sender = sender;
         }
 

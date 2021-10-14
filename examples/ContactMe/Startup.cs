@@ -8,6 +8,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Oak.Events;
 using Oak.Webhooks;
+using Oak.Email;
+using Oak.Email.Smtp;
+using ContactMe.Email;
+using Oak.ContactMe.Models;
 
 namespace ContactMe
 {
@@ -32,9 +36,16 @@ namespace ContactMe
 
             services.AddOakWebhooks();
             services.AddOakEventDispatcher();
+
+            services.Configure<HookOptions>(this.Configuration.GetSection("Hooks"));
+
             services.AddAsyncEvent<DiscordWebhook, ContactMeEvent>();
             services.AddWebhook<DiscordWebhook, DiscordWebhookRequest>();
-            services.Configure<DiscordOptions>(this.Configuration.GetSection("Discord"));
+
+            services.AddMailKitClient(
+                this.Configuration.GetSection("Email"), 
+                this.Configuration.GetSection("Smtp"));
+            services.AddAsyncEvent<EmailEventHandler, ContactMeEvent>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

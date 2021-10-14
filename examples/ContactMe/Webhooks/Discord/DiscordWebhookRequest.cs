@@ -15,9 +15,8 @@ namespace ContactMe.Webhooks
                 {
                     Author = new DiscordAuthor 
                     { 
-                        Name = contactMeEvent.Email,
-                        // sadly won't accept mailto links
-                        // Url = $"mailto:{contactMeEvent.Email}" 
+                        Name = !string.IsNullOrEmpty(contactMeEvent.Name) ? 
+                            $"{contactMeEvent.Name} ({contactMeEvent.Email})" : $"{contactMeEvent.Email}",
                     }, 
                     Description = contactMeEvent.Body,
                     Colour = 0xffad49,
