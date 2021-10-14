@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Oak.TaskScheduler.Services
 {
     /// <summary>
-    /// Executes individual tasks
+    /// Singleton service for executing and tracking tasks in this session. 
     /// </summary>
     public interface ITaskHandler
     {

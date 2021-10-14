@@ -2,6 +2,9 @@ using System;
 
 namespace Oak.TaskScheduler
 {
+    /// <summary>
+    /// Create an occurrence every x days.
+    /// </summary>
     public class EveryXDaysOccurrence : TimespanOccurrenceBase, IOccurrence
     {
         /// <summary>
