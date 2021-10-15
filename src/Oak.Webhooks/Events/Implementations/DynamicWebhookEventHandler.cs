@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Oak.Events;
-using Oak.Shared;
 using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks.Events.Implementations

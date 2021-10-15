@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Oak.Shared;
 using Oak.Webhooks;
 namespace Oak.Tests.Webhooks.Mocks
 {

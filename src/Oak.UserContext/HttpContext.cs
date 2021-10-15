@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using Oak.Shared;
 
 namespace Oak.UserContext
 {
@@ -30,16 +29,16 @@ namespace Oak.UserContext
             {
                 var claims = this.httpContext.Claims.ToList();
 
-                var authid = claims.FirstOrDefault(c => c.Type == JWT.ClaimTypes.ID);
-                context.Id = new Guid(authid.Value);
+                var authId = claims.FirstOrDefault(c => c.Type == Constants.ClaimTypes.ID);
+                context.Id = new Guid(authId.Value);
 
-                var email = claims.FirstOrDefault(c => c.Type == JWT.ClaimTypes.Email);
+                var email = claims.FirstOrDefault(c => c.Type == Constants.ClaimTypes.Email);
                 context.Email = email.Value;
 
-                var permissions = claims.Where(c => c.Type == JWT.ClaimTypes.Permissions);
+                var permissions = claims.Where(c => c.Type == Constants.ClaimTypes.Permissions);
                 context.Permissions = permissions.Select(c => c.Value).ToList();
 
-                var type = claims.FirstOrDefault(c => c.Type == JWT.ClaimTypes.Type);
+                var type = claims.FirstOrDefault(c => c.Type == Constants.ClaimTypes.Type);
                 context.Type = (Types.Authentication)Enum.Parse(typeof(Types.Authentication), type.Value);
                 this.Claims = claims;
             }

@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Oak.Shared;
 using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks
