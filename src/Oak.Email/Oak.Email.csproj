@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Oak.Shared\Oak.Shared.csproj" />
+    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" />
   </ItemGroup>
 
 </Project>

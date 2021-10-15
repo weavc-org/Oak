@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Oak.Events;
-using Oak.Shared;
 using Oak.Webhooks.Clients;
 
 namespace Oak.Webhooks.Events.Implementations

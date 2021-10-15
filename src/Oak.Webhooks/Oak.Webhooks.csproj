@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Oak.Shared\Oak.Shared.csproj" />
+    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" />
     <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" />
   </ItemGroup>
 

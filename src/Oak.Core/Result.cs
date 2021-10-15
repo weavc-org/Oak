@@ -1,6 +1,6 @@
-using Oak.Shared.Errors;
+using Oak.Errors;
 
-namespace Oak.Shared
+namespace Oak
 {
     public class Result : Result<string> 
     { 

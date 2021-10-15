@@ -1,11 +1,5 @@
-using System;
-using System.Threading.Tasks;
 using Moq;
-using NUnit.Framework;
-using Oak.Shared;
-using Oak.Webhooks;
 using Oak.Webhooks.Clients;
-using Oak.Webhooks.Clients.Implementations;
 
 namespace Oak.Tests.Webhooks.Mocks
 {

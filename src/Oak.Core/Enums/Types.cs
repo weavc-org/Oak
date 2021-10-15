@@ -1,6 +1,6 @@
 using System;
 
-namespace Oak.Shared
+namespace Oak
 {
     public static class Types
     {

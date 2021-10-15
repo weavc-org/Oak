@@ -1,9 +1,7 @@
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Oak.Events;
-using Oak.Shared;
 using Newtonsoft.Json;
 using System.Text;
 
