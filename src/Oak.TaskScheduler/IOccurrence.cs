@@ -3,13 +3,16 @@ using System;
 namespace Oak.TaskScheduler
 {
     /// <summary>
-    /// See CronOccurrence, EveryXDaysOccurrence, EveryXHoursOccurrence and EveryXMinutesOccurrence for implemention examples.
+    /// Calculate next occurrence for a scheduled task. See <see cref="CronOccurrence"/>,
+    /// <see cref="EveryXDaysOccurrence"/>, <see cref="EveryXMinutesOccurrence"/>, <see cref="EveryXHoursOccurrence"/>
+    /// for implemtation examples.
     /// </summary>
     public interface IOccurrence
     {
         /// <summary>
-        /// Calculates the next occurance of a task from the provided date
+        /// Get next occurrence after provided date.
         /// </summary>
+        /// <returns>DateTime of next occurrence.</returns>
         DateTime Next(DateTime from);
     }
 }

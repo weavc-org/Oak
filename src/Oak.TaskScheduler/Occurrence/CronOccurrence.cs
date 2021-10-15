@@ -3,6 +3,9 @@ using Oak.TaskScheduler.Cron;
 
 namespace Oak.TaskScheduler
 {
+    /// <summary>
+    /// Create an occurrence using cron formatted strings.
+    /// </summary>
     public class CronOccurrence : IOccurrence
     {
         private CrontabSchedule schedule;
