@@ -1,4 +1,4 @@
-namespace Oak.Shared.Errors
+namespace Oak.Errors
 {
     public class BadRequestError : IError
     {
