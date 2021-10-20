@@ -18,7 +18,7 @@
     </dependencies>
   </metadata>
    <files>
-     <file src="bin\Release\netstandard2.1\Oak.Core.dll" target="lib\netstandard2.1" />
-     <file src="bin\Release\net5.0\Oak.Core.dll" target="lib\net5.0" />
+     <!-- <file src="bin\Release\netstandard2.1\Oak.Core.dll" target="lib\netstandard2.1" />
+     <file src="bin\Release\net5.0\Oak.Core.dll" target="lib\net5.0" /> -->
   </files>
 </package>
