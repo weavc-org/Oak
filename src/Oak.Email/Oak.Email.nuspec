@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Oak.Email</id>
-    <version>0.0.1</version>
+    <version>0.0.3-preview1</version>
     <title>Oak.Email</title>
     <authors>Chris (@ChrisWeaver1)</authors>
     <owners>Chris (@ChrisWeaver1)</owners>

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Oak.Webhooks</id>
-    <version>0.0.1</version>
+    <version>0.0.3-preview1</version>
     <title>Oak.Webhooks</title>
     <authors>Chris (@ChrisWeaver1)</authors>
     <owners>Chris (@ChrisWeaver1)</owners>
@@ -10,13 +10,13 @@
     <repository type="git" url="https://github.com/weavc/Oak.git"/>
     <dependencies>
       <group targetFramework="net5.0">
-        <dependency id="Oak.Events" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Oak.Events" version="0.0.3-preview1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Http" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
       </group>
       <group targetFramework=".NETStandard2.1">
-        <dependency id="Oak.Events" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Oak.Events" version="0.0.3-preview1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Http" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
