@@ -2,40 +2,27 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
-    <PackageId>Oak</PackageId>
-    <Title>Oak</Title>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Chris (@ChrisWeaver1)</Authors>
-    <Version>0.0.1</Version>
-    <Company>-</Company>
     <PackageProjectUrl>https://github.com/weavc/Oak</PackageProjectUrl>
-    <Description></Description>
-    <Summary></Summary>
     <RepositoryUrl>https://github.com/weavc/Oak</RepositoryUrl>
     <PackageTags></PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
     <AssemblyName>Oak</AssemblyName>
     <PackageIcon></PackageIcon>
+    <NuspecFile>Oak.nuspec</NuspecFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.TaskScheduler\Oak.TaskScheduler.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.UserContext\Oak.UserContext.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.Email.Sendgrid\Oak.Email.Sendgrid.csproj" PrivateAssets="all" />
-    <ProjectReference Include="..\Oak.Webhooks\Oak.Webhooks.csproj" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Teronis.MSBuild.Packaging.ProjectBuildInPackage" Version="0.1.7">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" />
+    <ProjectReference Include="..\Oak.TaskScheduler\Oak.TaskScheduler.csproj" />
+    <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" />
+    <ProjectReference Include="..\Oak.UserContext\Oak.UserContext.csproj" />
+    <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" />
+    <ProjectReference Include="..\Oak.Email.Sendgrid\Oak.Email.Sendgrid.csproj" />
+    <ProjectReference Include="..\Oak.Webhooks\Oak.Webhooks.csproj" />
   </ItemGroup>
 
 </Project>

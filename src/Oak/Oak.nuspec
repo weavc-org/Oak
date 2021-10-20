@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Oak</id>
+    <version>0.0.2</version>
+    <title>Oak</title>
+    <authors>Chris (@ChrisWeaver1)</authors>
+    <owners>Chris (@ChrisWeaver1)</owners>
+    <description>a</description>
+    <dependencies>
+      <group targetFramework="netstandard2.1" />
+      <group targetFramework="net5.0" />
+    </dependencies>
+  </metadata>
+   <files>
+     <file src="bin\Release\netstandard2.1\Oak.*.dll" target="lib\netstandard2.1" />
+     <file src="bin\Release\net5.0\Oak.*.dll" target="lib\net5.0" />
+  </files>
+</package>
