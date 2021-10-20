@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Oak</id>
-    <version>0.0.2</version>
-    <title>Oak</title>
+    <id>Oak.Webhooks</id>
+    <version>0.0.1</version>
+    <title>Oak.Webhooks</title>
     <authors>Chris (@ChrisWeaver1)</authors>
     <owners>Chris (@ChrisWeaver1)</owners>
-    <description>A series of dotnet libraries pulled from various web projects.</description>
+    <description>Oak webhooks library</description>
     <repository type="git" url="https://github.com/weavc/Oak.git"/>
     <dependencies>
       <group targetFramework="net5.0">
-        <dependency id="Oak.Email" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Oak.Events" version="1.0.0" exclude="Build,Analyzers" />
-        <dependency id="Oak.TaskScheduler" version="0.0.1" exclude="Build,Analyzers" />
-        <dependency id="Oak.Webhooks" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Http" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
       </group>
       <group targetFramework=".NETStandard2.1">
-        <dependency id="Oak.Email" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Oak.Events" version="1.0.0" exclude="Build,Analyzers" />
-        <dependency id="Oak.TaskScheduler" version="0.0.1" exclude="Build,Analyzers" />
-        <dependency id="Oak.Webhooks" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Http" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
