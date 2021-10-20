@@ -13,3 +13,5 @@ View the project and more details over in [`src/Oak.Events/`](https://github.com
 ### Oak.Webhooks
 
 ### Oak.TaskScheduler
+
+Services and helpers for building a simple scheduled tasks. The library is built with concurrency & dependency injection in mind, it will track and run tasks based on the implementation of `IOccurrence`
