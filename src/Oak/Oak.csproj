@@ -22,13 +22,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" />
-    <ProjectReference Include="..\Oak.TaskScheduler\Oak.TaskScheduler.csproj" />
-    <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" />
-    <ProjectReference Include="..\Oak.UserContext\Oak.UserContext.csproj" />
-    <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" />
-    <ProjectReference Include="..\Oak.Email.Sendgrid\Oak.Email.Sendgrid.csproj" />
-    <ProjectReference Include="..\Oak.Webhooks\Oak.Webhooks.csproj" />
+    <ProjectReference Include="..\Oak.Core\Oak.Core.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.TaskScheduler\Oak.TaskScheduler.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.Events\Oak.Events.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.UserContext\Oak.UserContext.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.Email\Oak.Email.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.Email.Sendgrid\Oak.Email.Sendgrid.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Oak.Webhooks\Oak.Webhooks.csproj" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Teronis.MSBuild.Packaging.ProjectBuildInPackage" Version="0.1.7">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
