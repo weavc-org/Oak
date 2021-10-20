@@ -6,7 +6,8 @@
     <title>Oak</title>
     <authors>Chris (@ChrisWeaver1)</authors>
     <owners>Chris (@ChrisWeaver1)</owners>
-    <description>a</description>
+    <description>A series of dotnet libraries pulled from various web projects.</description>
+    <repository type="git" url="https://github.com/weavc/Oak.git"/>
     <dependencies>
       <group targetFramework="netstandard2.1" />
       <group targetFramework="net5.0" />
