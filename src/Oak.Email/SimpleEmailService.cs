@@ -11,8 +11,8 @@ namespace Oak.Email
         private IMailClient _mailClient;
 
         public SimpleEmailService(
-            ILogger<SimpleEmailService> logger,
-            IMailClient mailClient)
+            IMailClient mailClient,
+            ILogger<SimpleEmailService> logger = null)
         {
             _mailClient = mailClient;
             _logger = logger;
@@ -40,7 +40,7 @@ namespace Oak.Email
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex.ToString());
+                this._logger?.LogError(ex.ToString());
                 return new Result(success: false, message: "Encountered an error sending mail");
             }
 
@@ -61,7 +61,7 @@ namespace Oak.Email
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex.ToString());
+                this._logger?.LogError(ex.ToString());
                 return null;
             }
         }
