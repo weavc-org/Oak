@@ -27,7 +27,7 @@ namespace Oak.TaskScheduler.Models
             this.LastCompleted = time;
             this.Completed += 1;
 
-            this.calculateAverage();
+            this.CalculateAverage();
         }
 
         public void TaskErrored(DateTime time)
@@ -36,10 +36,10 @@ namespace Oak.TaskScheduler.Models
             this.LastCompleted = time;
             this.Errors += 1;
 
-            this.calculateAverage();
+            this.CalculateAverage();
         }
 
-        private void calculateAverage()
+        private void CalculateAverage()
         {
             if (this.AverageRunTime == null)
             {
