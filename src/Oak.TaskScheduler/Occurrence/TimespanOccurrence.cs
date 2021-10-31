@@ -14,7 +14,7 @@ namespace Oak.TaskScheduler
         /// </param>
         public TimespanOccurrence(TimeSpan timespan, TimeSpan offset = default) 
         {
-            base.setValues(timespan, offset);
+            base.SetValues(timespan, offset);
         }
     }
 }

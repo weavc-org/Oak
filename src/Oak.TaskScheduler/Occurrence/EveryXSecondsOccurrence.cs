@@ -13,7 +13,7 @@ namespace Oak.TaskScheduler
         /// <param name="seconds">Number of seconds between occurrences</param>
         public EveryXSecondsOccurrence(int seconds) 
         {
-            base.setValues(new TimeSpan(0, 0, seconds));
+            base.SetValues(new TimeSpan(0, 0, seconds));
         }
     }
 }

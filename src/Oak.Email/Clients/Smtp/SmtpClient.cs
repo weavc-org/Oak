@@ -24,7 +24,7 @@ namespace Oak.Email.Smtp
         {
             this._options = options.Value;
             this._emailOptions = emailOptions.Value;
-            this._client = _defaults();
+            this._client = Defaults();
             this.FromDefault = new MailAddress(this._emailOptions.FromAddress);
             this._logger = logger;
         }
@@ -55,7 +55,7 @@ namespace Oak.Email.Smtp
             return;
         }
 
-        private SmtpClient _defaults()
+        private SmtpClient Defaults()
         {
             var smtp = new SmtpClient();
             smtp.Host = this._options.Address;

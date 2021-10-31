@@ -16,7 +16,7 @@ namespace Oak.TaskScheduler
         /// <param name="secondsOffset">Offset the seconds by this amount. Example: 1 minute with a 30 second offset would return values 30 seconds after the minute, rather than on the minute.</param>
         public EveryXDaysOccurrence(int days, int hoursOffset = 0, int minutesOffset = 0, int secondsOffset = 0) 
         {
-            this.setValues(new TimeSpan(days, 0, 0, 0), new TimeSpan(hoursOffset, minutesOffset, secondsOffset));
+            this.SetValues(new TimeSpan(days, 0, 0, 0), new TimeSpan(hoursOffset, minutesOffset, secondsOffset));
         }
     }
 }
