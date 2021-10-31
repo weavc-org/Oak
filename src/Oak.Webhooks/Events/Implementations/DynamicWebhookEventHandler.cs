@@ -37,10 +37,10 @@ namespace Oak.Webhooks.Events.Implementations
             if (data == null || data == default)
                 throw new Exception("Data value is null");
 
-            return this._send(url, type, data);
+            return this.Send(url, type, data);
         }
 
-        private Task<Result> _send(string url, string type, object data)
+        private Task<Result> Send(string url, string type, object data)
         {
             return this._webhookClientFactory.GetWebhookClient(type).Send(url, data);
         }
