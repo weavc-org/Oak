@@ -1,17 +1,15 @@
 ## Oak
 
-Oak is a series of dotnet libraries I pulled out from personal projects and organized into neat packages to be used elsewhere. The libraries are mostly focused around ASP.NET web projects and dependency injection. Feel free to use them in your own projects, contribute or ask questions.
+Oak is a series of dotnet libraries I pulled out from personal projects and organized into neat packages. 
 
-### Oak.Events
+The libraries are mostly focused around ASP.NET based projects and dependency injection. Feel free to use them in your own projects, contribute or ask questions.
 
-Event library for building apps with event-driven architecture. It allows for event handlers to be incorporated into the standard dependency injection pipeline, be created dynamically, and executed either synchronously or asynchronously.
-
-View the project and more details over in [`src/Oak.Events/`](https://github.com/weavc/Oak/tree/master/src/Oak.Events) or the working example in [`examples/ContactMe`](https://github.com/weavc/Oak/tree/master/examples/ContactMe).
-
-### Oak.Email
-
-### Oak.Webhooks
-
-### Oak.TaskScheduler
-
-Services and helpers for building a simple scheduled tasks. The library is built with concurrency & dependency injection in mind, it will track and run tasks based on the implementation of `IOccurrence`
+The project consists of several libraries:
+- Oak.Email
+    - Various email client abstractions including `System.Mail`, `Mailkit` and `Sendgrid`.
+- Oak.Events
+    - Create and dispatch events through dependency injection. 
+- Oak.Webhooks
+    - Create, build and trigger webhooks to other services.
+- Oak.TaskScheduler
+    - Hosted service for running tasks on the schedule.
