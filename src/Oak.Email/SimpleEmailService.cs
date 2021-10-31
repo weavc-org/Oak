@@ -28,7 +28,7 @@ namespace Oak.Email
                 return new Result(success: false, message: "To, title and body parameter must not be empty");
             }
 
-            MailMessage mail = this._mail(to, title, body);
+            MailMessage mail = this.SendMail(to, title, body);
             if (mail == null)
             {
                 return new Result(success: false, message: "Encountered an error creating mail");
@@ -47,7 +47,7 @@ namespace Oak.Email
             return new Result(success: true);
         }
 
-        private MailMessage _mail(string to, string title, string body)
+        private MailMessage SendMail(string to, string title, string body)
         {
             try
             {
