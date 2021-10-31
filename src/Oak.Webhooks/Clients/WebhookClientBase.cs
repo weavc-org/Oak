@@ -21,11 +21,11 @@ namespace Oak.Webhooks.Clients
 
         public virtual async Task<Result> Send<T>(string url, T data)
         {
-            var task = await this._send(url, data);
+            var task = await this.PostData(url, data);
             this.eventDispatcher?.EmitAsync(new OnWebhookEvent<T>(this, url, this.Type, data));
             return task;
         }
 
-        protected abstract Task<Result> _send<T>(string url, T data); 
+        protected abstract Task<Result> PostData<T>(string url, T data); 
     }
 }

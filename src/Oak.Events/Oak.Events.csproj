@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Oak.Events</AssemblyName>
+    <NuspecFile>Oak.Events.nuspec</NuspecFile>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>

@@ -8,16 +8,16 @@ namespace Oak.TaskScheduler
         {
         }
 
-        protected virtual TimeSpan timespan { get; private set; } = default;
-        protected virtual TimeSpan offset { get; private set; } = default;
+        protected virtual TimeSpan Timespan { get; private set; } = default;
+        protected virtual TimeSpan Offset { get; private set; } = default;
 
-        protected virtual void setValues(TimeSpan timespan, TimeSpan offset = default)
+        protected virtual void SetValues(TimeSpan timespan, TimeSpan offset = default)
         {
             if (offset >= timespan)
                 throw new Exception("Offset cannot exceed (or equal) the timespan between scheduled occurrences.");
 
-            this.timespan = timespan;
-            this.offset = offset;
+            this.Timespan = timespan;
+            this.Offset = offset;
         }
 
         public virtual DateTime Next(DateTime from)
@@ -29,7 +29,7 @@ namespace Oak.TaskScheduler
         {
             // Convert to ticks
             var dateTicks = from.Ticks;
-            var timespanTicks = this.timespan.Ticks;
+            var timespanTicks = this.Timespan.Ticks;
 
             // Find the last matching value by taking the remainder of from / timespan
             // and substracting it from the from date
@@ -41,12 +41,12 @@ namespace Oak.TaskScheduler
             var date = new DateTime(next);
 
             // Add the offset to the next occurrence
-            date = date + offset;
+            date = date + Offset;
 
             // If the offset has caused the timespan between runs to be greater
             // than the scheduled occurrence, offset the value by the timespan
-            if ((date - from) > this.timespan)
-                date = date.Add(-this.timespan);
+            if ((date - from) > this.Timespan)
+                date = date.Add(-this.Timespan);
 
             return date;
         }

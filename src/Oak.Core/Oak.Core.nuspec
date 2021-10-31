@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Oak.Core</id>
+    <version>0.0.3-preview1</version>
+    <title>Oak.Core</title>
+    <authors>Chris (@ChrisWeaver1)</authors>
+    <owners>Chris (@ChrisWeaver1)</owners>
+    <description>Core infrastructure library for Oak.</description>
+    <repository type="git" url="https://github.com/weavc/Oak.git"/>
+    <dependencies>
+      <group targetFramework="net5.0"/>
+      <group targetFramework=".NETStandard2.1"/>
+    </dependencies>
+  </metadata>
+   <files>
+  </files>
+</package>

@@ -24,7 +24,7 @@ namespace Oak.Webhooks.Clients.Implementations
 
         public override string Type => WebhookTypes.PostJson;
 
-        protected override async Task<Result> _send<T>(string url, T data)
+        protected override async Task<Result> PostData<T>(string url, T data)
         {
             var json = JsonConvert.SerializeObject(data);
             var response = await this._client.PostAsync($"{url}", new StringContent(json, Encoding.UTF8, "application/json"));

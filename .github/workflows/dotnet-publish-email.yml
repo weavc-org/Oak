@@ -1,4 +1,4 @@
-name: Dotnet Publish Oak Package
+name: Dotnet Publish Oak.Email Package
 
 on: 
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
     workflows: ["Dotnet Publish Packages"]
     types:
       - completed
+
 
 jobs:
   build:
@@ -21,19 +22,19 @@ jobs:
         dotnet-version: 5.0.x
 
     - name: Restore dependencies
-      run: dotnet restore src/Oak/
+      run: dotnet restore src/Oak.Email/
 
     - name: Build
-      run: dotnet build src/Oak/ --no-restore --configuration=Release
+      run: dotnet build src/Oak.Email/ --no-restore --configuration=Release
 
     - name: Test
       run: dotnet test tests/
 
     - name: Pack
-      run: dotnet pack src/Oak --configuration=Release
+      run: dotnet pack src/Oak.Email/ --configuration=Release
 
     - name: Authenticate
       run: dotnet nuget add source --username ChrisWeaver1 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/weavc/index.json"
 
     - name: Publish
-      run: dotnet nuget push src/Oak/bin/Release/*.nupkg --source "github"
+      run: dotnet nuget push src/Oak.Email/bin/Release/*.nupkg --source "github"

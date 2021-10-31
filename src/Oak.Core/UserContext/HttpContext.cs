@@ -15,13 +15,13 @@ namespace Oak.UserContext
         public HttpUserContext(ClaimsPrincipal context)
         {
             this.httpContext = context;
-            this.populate();
+            this.Populate();
         }
 
         public List<Claim> Claims { get; private set; }
         protected override IContext Context { get; set; }
 
-        private void populate()
+        private void Populate()
         {
             var context = new Context();
             context.Authenticated = this.httpContext.Identity.IsAuthenticated;
