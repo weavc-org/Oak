@@ -26,23 +26,23 @@ namespace ContactMe.Email
             {
                 var result = await this._emailService.Send(
                     email, 
-                    this._parseTitle(args), 
-                    this._parseBody(args));
+                    this.Title(args), 
+                    this.Body(args));
             }
         }
 
-        private string _parseBody(ContactMeEvent model)
+        private string Body(ContactMeEvent model)
         {
-            return $"{model.Body}\n\n{this._parseName(model)}";
+            return $"{model.Body}\n\n{this.Name(model)}";
         }
 
-        private string _parseTitle(ContactMeEvent model)
+        private string Title(ContactMeEvent model)
         {
             
-            return $"New Message from: {this._parseName(model)}";
+            return $"New Message from: {this.Name(model)}";
         }
 
-        private string _parseName(ContactMeEvent model)
+        private string Name(ContactMeEvent model)
         {
             return !string.IsNullOrEmpty(model.Name) ? $"{model.Name} ({model.Email})" : $"{model.Email}";
         }
