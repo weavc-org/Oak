@@ -9,7 +9,6 @@ using Microsoft.OpenApi.Models;
 using Oak.Events;
 using Oak.Webhooks;
 using Oak.Email;
-using Oak.Email.Smtp;
 using ContactMe.Email;
 using Oak.ContactMe.Models;
 
@@ -35,7 +34,10 @@ namespace ContactMe
             });
 
             services.AddOakWebhooks();
-            services.AddOakEventDispatcher();
+            services.AddOakEventDispatcher((config) => 
+            {
+                config.Mode = EventDispatcherMode.Ambiguous;
+            });
 
             services.Configure<HookOptions>(this.Configuration.GetSection("Hooks"));
 
