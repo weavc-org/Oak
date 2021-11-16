@@ -21,7 +21,7 @@ namespace Oak.Webhooks.Events.Implementations
 
         public Task HandleEventAsync(OnPostEmitEvent args)
         {
-            if (args.EmittedEvent.GetType() != typeof(IWebhookEvent<>))
+            if (args.Value.GetType() != typeof(IWebhookEvent<>))
                 return Task.CompletedTask;
 
             var url = (string)args.GetType()?.GetProperty("Url")?.GetValue(args);
