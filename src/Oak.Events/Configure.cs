@@ -11,9 +11,9 @@ namespace Oak.Events
             this IServiceCollection services, 
             Action<EventDispatcherOptions> options)
         {
-            services.AddScoped<IEventDispatcher, DefaultEventDispatcher>();
-            services.AddScoped<IEventDispatcher, AmbiguousEventDispatcher>();
-            services.AddScoped<IEventDispatcher, IndependentEventDispatcher>();
+            services.TryAddScoped<IEventDispatcher, DefaultEventDispatcher>();
+            services.TryAddScoped<AmbiguousEventDispatcher>();
+            services.TryAddScoped<IndependentEventDispatcher>();
             services.Configure<EventDispatcherOptions>(options);
         }
 

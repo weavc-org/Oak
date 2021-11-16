@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -9,15 +8,15 @@ namespace Oak.Events.Implementations
 {
     public class DefaultEventDispatcher : IEventDispatcher
     {
-        private readonly IEnumerable<IEventDispatcher> _eventDispatchers;
+        private readonly IServiceProvider _serviceProvider;
         private readonly EventDispatcherOptions _options;
 
         public DefaultEventDispatcher(
-            IEnumerable<IEventDispatcher> eventDispatchers,
+            IServiceProvider serviceProvider,
             IOptions<EventDispatcherOptions> options,
             ILogger<DefaultEventDispatcher> logger = null)
         {
-            this._eventDispatchers = eventDispatchers;
+            this._serviceProvider = serviceProvider;
             this._options = options.Value;
         }
 
@@ -42,10 +41,10 @@ namespace Oak.Events.Implementations
             switch(this._options.Mode)
             {
                 case EventDispatcherMode.Ambiguous:
-                    dispatcher = this._eventDispatchers.FirstOrDefault(s => s is AmbiguousEventDispatcher);
+                    dispatcher = this._serviceProvider.GetService<AmbiguousEventDispatcher>();
                     break;
                 case EventDispatcherMode.Independent:
-                    dispatcher = this._eventDispatchers.FirstOrDefault(s => s is IndependentEventDispatcher);
+                    dispatcher = this._serviceProvider.GetService<AmbiguousEventDispatcher>();
                     break;
             }
 
