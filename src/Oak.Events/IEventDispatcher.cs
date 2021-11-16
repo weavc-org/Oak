@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Oak.Events
 {
-    public interface IEventDispatcher : IAsyncDisposable
+    public interface IEventDispatcher
     {
         void Emit(IEvent @event);
         Task EmitAsync(IEvent @event);

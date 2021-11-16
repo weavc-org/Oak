@@ -6,9 +6,9 @@ using Oak.Events.Implementations;
 
 namespace Oak.Tests.Events
 {
-    public class TestSplitEventDispatcher
+    public class TestAmbiguousEventDispatcher
     {
-        private IEventDispatcher _eventDispatcher(IServiceProvider provider = null)
+        private AmbiguousEventDispatcher _eventDispatcher(IServiceProvider provider = null)
         {
             if (provider == null)
             {
@@ -20,7 +20,7 @@ namespace Oak.Tests.Events
                 });
 
             }
-            return new SplitEventDispatcher(provider);
+            return new AmbiguousEventDispatcher(provider);
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Oak.Tests.Events
                 typeOf = o.GetType();
             }));
 
-            Assert.AreEqual(1, count);
+            Assert.AreEqual(2, count);
             Assert.IsTrue(wasCalled);
             Assert.AreEqual(this.GetType(), typeOf);
         }
@@ -54,7 +54,7 @@ namespace Oak.Tests.Events
                 typeOf = o.GetType();
             }));
 
-            Assert.AreEqual(1, count);
+            Assert.AreEqual(2, count);
             Assert.IsTrue(wasCalled);
             Assert.AreEqual(this.GetType(), typeOf);
         }
