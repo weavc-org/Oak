@@ -39,7 +39,7 @@ namespace Oak.Events.Implementations
         public virtual void Emit(IEvent @event)
         {
             this.EmitEvent(@event);
-            this.EmitEvent(new OnPostEmitEvent(@event.Sender, @event));
+            this.EmitEvent(new OnPostEmitEvent(@event));
         }
 
         protected virtual void EmitEvent(IEvent @event)
@@ -66,7 +66,7 @@ namespace Oak.Events.Implementations
         public async virtual Task EmitAsync(IEvent @event)
         {
             await this.EmitEventAsync(@event);
-            await this.EmitEventAsync(new OnPostEmitEvent(@event.Sender, @event));
+            await this.EmitEventAsync(new OnPostEmitEvent(@event));
         }
 
         protected virtual async Task EmitEventAsync(IEvent @event)

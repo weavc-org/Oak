@@ -3,14 +3,11 @@ namespace Oak.Events
     public class OnPostEmitEvent : IEvent
     {
         public OnPostEmitEvent(
-            object sender, 
-            IEvent emittedEvent)
+            IEvent @event)
         {
-            Sender = sender;
-            EmittedEvent = emittedEvent;
+            Value = @event;
         }
 
-        public object Sender { get; set; }
-        public IEvent EmittedEvent { get; set; }
+        public IEvent Value { get; set; }
     }
 }

@@ -1,8 +1,4 @@
 namespace Oak.Events
 {
-    public interface IEvent
-    { 
-        object Sender { get; }
-
-    }
+    public interface IEvent { }
 }
